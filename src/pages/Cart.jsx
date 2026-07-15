@@ -61,6 +61,9 @@ useEffect(() => {
         ))}
       </ul>
       <p className="cart-total">合計：¥{totalPrice.toLocaleString()}</p>
+      <button type="button" className="cart-checkout" onClick={() => alert("購入手続きへ進みます。")}>
+        購入手続きへ進む
+      </button>
     </section>
   );
 }

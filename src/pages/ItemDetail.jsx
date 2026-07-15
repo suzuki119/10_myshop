@@ -4,12 +4,16 @@ import { Link, useParams } from 'react-router-dom';
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase.js";
 
-
-export default function ItemDetail() {
+export default function ItemDetail({ cart }) {
   // URLパラメータを取得
   const { id } = useParams();
   const [item, setItem] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    cart.add(item.id);
+  };
 
 // src/pages/ItemDetail.jsx
 useEffect(() => {
@@ -66,6 +70,14 @@ useEffect(() => {
             <dd>{item.size}</dd>
           </div>
         </dl>
+      <button
+  type="button"
+  className="item-card__cart"
+  onClick={handleAddToCart}
+  disabled={item.status === "soldout"}
+>
+  カートに入れる
+</button>
       </div>
     </div>
   );

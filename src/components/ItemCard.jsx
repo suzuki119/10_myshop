@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 // src/components/ItemCard.jsx
 export default function ItemCard({ item, favorites, cart }) {
+
   const handleFavorite = (e) => {
     e.preventDefault(); // 親の<Link>による画面遷移を止める
     if (favorites.has(item.id)) {
@@ -36,6 +37,7 @@ export default function ItemCard({ item, favorites, cart }) {
       >
         ♡
       </button>
+
       <button
   type="button"
   className="item-card__cart"

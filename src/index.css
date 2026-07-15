@@ -406,3 +406,150 @@ img {
     display: none;
   }
 }
+
+/* ---------- Login / Admin ---------- */
+
+.login {
+  max-width: 360px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login h2 {
+  font-size: 20px;
+  margin: 0;
+  text-align: center;
+}
+
+.login__error {
+  color: var(--color-accent);
+  font-size: 14px;
+  margin: 0;
+  text-align: center;
+}
+
+.item-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.item-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+  color: var(--color-muted);
+}
+
+.item-form__field input,
+.item-form__field textarea,
+.item-form__field select {
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--color-text);
+  padding: 8px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--card-radius);
+  background: #fff;
+}
+
+.item-form__submit {
+  margin-top: 8px;
+  padding: 10px;
+  background: var(--color-text);
+  color: #fff;
+  border-radius: var(--card-radius);
+}
+
+.item-form__submit:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.admin {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.admin__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin__header h2 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.admin__logout,
+.admin__cancel {
+  font-size: 13px;
+  color: var(--color-muted);
+  text-decoration: underline;
+}
+
+.admin__cancel {
+  margin-top: 12px;
+}
+
+.admin__form h3,
+.admin__list h3 {
+  font-size: 16px;
+  margin: 0 0 12px;
+}
+
+.admin__list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.admin__thumb {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: var(--card-radius);
+}
+
+.admin__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.admin__name {
+  margin: 0;
+  font-size: 15px;
+}
+
+.admin__meta {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: var(--color-muted);
+}
+
+.admin__row button {
+  font-size: 13px;
+  padding: 6px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--card-radius);
+  background: #fff;
+}
+
+.admin__delete {
+  color: var(--color-accent);
+}
