@@ -7,5 +7,3 @@ dist
 .firebase
 .agents
 .claude
-.firebaserc
-firebase.json
