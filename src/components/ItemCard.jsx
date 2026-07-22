@@ -1,12 +1,13 @@
 // src/components/ItemCard.jsx
 import { Link } from "react-router-dom";
 
-// src/components/ItemCard.jsx
-export default function ItemCard({ item, favorites, cart }) {
+export default function ItemCard({ item, favorites, cart, featured = false }) {
+  const isFav = favorites.has(item.id);
+  const isSoldOut = item.status === "soldout";
 
   const handleFavorite = (e) => {
     e.preventDefault(); // 親の<Link>による画面遷移を止める
-    if (favorites.has(item.id)) {
+    if (isFav) {
       favorites.remove(item.id);
     } else {
       favorites.add(item.id);
@@ -19,34 +20,40 @@ export default function ItemCard({ item, favorites, cart }) {
   };
 
   return (
-    <Link to={`/items/${item.id}`} className="item-card">
+    <Link
+      to={`/items/${item.id}`}
+      className={featured ? "item-card item-card--featured" : "item-card"}
+    >
       <div className="item-card__image">
         <img src={item.image} alt={item.name} />
-        {item.status === "soldout" && (
-          <span className="item-card__badge">soldout</span>
-        )}
+        {featured && <span className="item-card__pick">PICK UP</span>}
+        {isSoldOut && <span className="item-card__badge">soldout</span>}
+
+        <button
+          type="button"
+          className={isFav ? "item-card__fav is-active" : "item-card__fav"}
+          onClick={handleFavorite}
+          aria-label="お気に入りに追加"
+        >
+          {isFav ? "♥" : "♡"}
+        </button>
+
+        <div className="item-card__overlay">
+          <button
+            type="button"
+            className="item-card__cart"
+            onClick={handleAddToCart}
+            disabled={isSoldOut}
+          >
+            {isSoldOut ? "sold out" : "＋ カートに入れる"}
+          </button>
+        </div>
       </div>
-      <h3 className="item-card__name">{item.name}</h3>
-      <p className="item-card__price">¥{item.price.toLocaleString()}</p>
-      <button
-        type="button"
-        className={
-          favorites.has(item.id) ? "item-card__fav is-active" : "item-card__fav"
-        }
-        onClick={handleFavorite}
-      >
-        ♡
-      </button>
 
-      <button
-  type="button"
-  className="item-card__cart"
-  onClick={handleAddToCart}
-  disabled={item.status === "soldout"}
->
-  カートに入れる
-</button>
-
+      <div className="item-card__meta">
+        <h3 className="item-card__name">{item.name}</h3>
+        <p className="item-card__price">¥{item.price.toLocaleString()}</p>
+      </div>
     </Link>
   );
 }

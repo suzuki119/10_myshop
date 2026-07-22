@@ -45,7 +45,9 @@ useEffect(() => {
       <ul className="cart-list">
         {rows.map((row) => (
           <li key={row.id} className="cart-row">
+
             <img src={row.image} alt={row.name} />
+
             <div className="cart-row__info">
               <p>{row.name}</p>
               <p>¥{row.price.toLocaleString()}</p>

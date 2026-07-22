@@ -1,6 +1,6 @@
 # ECsite_base
 
-このリポジトリは **Template Repository** として利用するための、React製ECアプリの雛形です。  
+このリポジトリは **Template Repository** として利用するための、React製ECアプリの雛形です。
 新しくECアプリを作成する際は、このテンプレートからリポジトリを生成して利用してください。
 
 ## 使い方（テンプレートから作成）
@@ -63,3 +63,12 @@ myitems-skeleton/
 - `src/index.css` の `:root` にあるCSS変数（色・フォント・幅）
 - `src/components/Header.jsx` のショップ名（`Myshop` を書き換え）
 - `src/components/Footer.jsx` のSNSリンク先
+
+## ショップアイテム候補
+
+- 自作のハンドメイド作品（ボックス）
+- 漫画
+- チェンソーマン、ヒロアカのグッズ
+- 豚の貯金箱
+- ぬいぐるみ
+- フィギュア
